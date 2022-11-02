@@ -1,0 +1,223 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>HGPD</title>
+    <base href="/aramco">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <!-- <link rel="stylesheet"
+        href="./css.css"> -->
+    <link rel="stylesheet"
+        href="https://cs-action.aramco.com/files/files/3e9cdd75-a081-45c7-ac70-2e51399e00d2/content">
+
+</head>
+
+<body>
+    <!-- <div id="load" class="load"></div> -->
+
+    <form action="/SASJobExecution/" align="center">
+        <input type="hidden" name="_program" value="$PROGRAM$" />
+        <input type="hidden" name="_action" value="wait,execute" />
+        <input type="hidden" name="_output_type" value="html" />
+        <div align="center" class="title">
+            <br>
+            <p>HGPD Energy Demand Forecasting</p>
+<!--             <div class="Aramco_logo"><img -->
+<!--                     src="https://cs-action.aramco.com/files/files/679e6292-9dfd-4e68-96f3-052307b7b135/content" -->
+<!--                     alt="ARAMCO Logo" width="200" height="100" title="ARAMCO Logo" /></div> -->
+
+            <div align="center">
+                <table>
+                    <tr>
+                        <td class="hd">Sale Gas</td>
+                        <td class="textfiled"><input type="number" class="input1" id="Total_Sale_Gas_MMSCFD" min=1
+                                step=0.0000000001><span class="units">MMSFCD</span></td>
+                        <td class="hd">Sulfur Production</td>
+                        <td class="textfiled"><input type="number" class="input1" id="Sulfur_Prod_MTD" min=1
+                                step=0.0000000001><span class="units">MTD</span></td>
+                        <td class="hd">Gas Condensate</td>
+                        <td class="textfiled"><input type="number" class="input1" id="Hydrocarb_Cond_MBD" min=1
+                                step=0.0000000001><span class="units">MBD</span></td>
+                    </tr>
+                    <tr>
+                        <td class="hd">Power Generation </td>
+                        <td class="textfiled"><input type="number" class="input1" id="CG_Power_Generation_MW" min=1
+                                step=0.0000000001><span class="units">MW</span></td>
+                        <td class="hd">Excess Steam</td>
+                        <td class="textfiled"><input type="number" class="input1" id="Excess_Steam" min=1
+                                step=0.0000000001><span class="units">Mlb/h</span></td>
+                        <td class="hd">Amp. Temp</td>
+                        <td class="textfiled"><input type="number" class="input1" id="Amb_Temp_F" min=1
+                                step=0.0000000001><span class="units">F</span>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td class="loaddiv" align="center">
+                            <!-- <div id="loading" class="loading"></div> -->
+                            <div id="loading" class="loading">
+                                <div></div>
+                                <div></div>
+                                <div></div>
+                                <div></div>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <div class="line_green"></div>
+
+        <br />
+        <div class="btn" align="center">
+            <button id="calculation" type="button" class="button">Calculation</button>
+            <button type="reset" class="clearbtn">Clear
+                Inputs</button>
+            <button type="button" class="maintbtn">Maintain</button>
+            <button id="printpdf" type="button" class="printbtn">Print Report</button>
+            <!-- <input type="reset" value="Clear Inputs" class="button" style="background-color: #ed702a;" /> -->
+            <!-- <input type="submit" value="Run code" class="jobexec_sample_input_submit" /> -->
+        </div>
+
+        <div id="fixvalue" align="center">
+            <div class="margin50">
+                <p class="section">Fixed Value</p>
+                <table>
+                    <tr>
+                        <td class="hd">SG Heat Value (Cogen)</td>
+                        <td class="textfiled"><input class="input2" id="sgHeatCoGen" value="1056" readonly><span
+                                class="units">(BTU/SCF)</span></td>
+                        <td class="hd">SG Heat Value (Boiler)</td>
+                        <td class="textfiled"><input class="input2" id="sgHeatValueBil" value="1056" readonly><span
+                                class="units">(BTU/SCF)</span></td>
+                        <!--                         <td class="hd">Bolier efficiency</td> -->
+                        <!--                         <td class="textfiled"><input class="input1" id="boilerEff" min=0 oninput="validity.valid||(value='');"><span  -->
+                        <!--                         		class="units">%</span> -->
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="hd">Imported power efficiency</td>
+                        <td class="textfiled"><input class="input2" id="powerImpEff" value="0.3962" readonly><span
+                                class="units">%</span>
+                        </td>
+                        <!--                         <td class="hd">Exported power efficiency</td> -->
+                        <!--                         <td class="textfiled"><input class="input1" id="powerExpEffcieny" min=0 oninput="validity.valid||(value='');"><span -->
+                        <!--                                 class="units">%</span></td> -->
+                        <td class="hd">Power Heat Value</td>
+                        <td class="textfiled"><input class="input2" id="powerHeat" value="3.412" readonly><span
+                                class="units"></span>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <div class="line_gray"></div>
+        <div id="KPI" align="center">
+            <div class="margin35">
+                <p class="section">Energy Intensity</p>
+                <table>
+                    <tr>
+                        <td class="hd">Energy Intensity KPI</td>
+                        <td class="textfiled"><input class="input2" id="EII_KPI" readonly /><span
+                                class="units">KBtu/Boe</span></td>
+                        <td class="hd">Total Energy Consumption</td>
+                        <td class="textfiled"><input class="input2" id="Energy_Consumption_MMBTUH" readonly /><span
+                                class="units">MMbtu/h</span>
+                        </td>
+                        <td class="hd">Total Production</td>
+                        <td class="textfiled"><input class="input2" id="EnergyProd_MBOE" readonly /><span
+                                class="units">MBDoe</span>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <div class="line_gray"></div>
+        <div id="KPI" align="center">
+            <div class="margin35">
+                <p class="section">Predicted Carbon Emissions</p>
+                <table>
+                    <tr>
+                        <td class="hd">Predicted Scope 1 Emissions</td>
+                        <td class="textfiled"><input class="input2" id="EM_SC1" readonly /><span
+                                class="units">kTon/yr</span></td>
+                        <td class="hd">Predicted Scope 2 Emissions</td>
+                        <td class="textfiled"><input class="input2" id="EM_SC2" readonly /><span
+                                class="units">kTon/yr</span>
+                        </td>
+                        <td class="hd">Predicted CO2 Emissions</td>
+                        <td class="textfiled"><input class="input2" id="EM_TOT" readonly /><span
+                                class="units">kTon/yr</span>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <div class="line_gray"></div>
+        <div id="Predict" align="center">
+            <div class="margin35">
+                <p class="section">Predicted Energy Streams</p>
+                <table>
+                    <tr>
+                        <td class="hd">Power Demand</td>
+                        <td class="textfiled"><input class="input2" id="Power_Demand_MW" readonly /><span
+                                class="units">MW</span>
+<!--                                 <button type="button" class="more">Details</button> -->
+                                </td>
+                        <td class="hd">Steam Demand</td>
+                        <td class="textfiled"><input class="input2" id="Steam_Demand_MLB_H" readonly /><span
+                                class="units">Mlb/h</span>
+<!--                                 <button type="button" class="more">Details</button> -->
+                                </td>
+                        <td class="hd">Power Export</td>
+                        <td class="textfiled"><input class="input2" id="Export_Power_MMBTUH" readonly /><span
+                                class="units">MW</span>
+<!--                                 <button type="button" class="more">Details</button> -->
+                                </td>
+                    </tr>
+                    <tr>
+                        <td class="hd">Steam Generation by SRU</td>
+                        <td class="textfiled"><input class="input2" id="Tot_SRU_Stm_Prod_MLB_H" readonly /><span
+                                class="units">MIb/h</span>
+<!--                                 <button type="button" class="more">Details</button> -->
+								</td>
+                        <td class="hd">Steam Gen. by Bolier</td>
+                        <td class="textfiled"><input class="input2" id="P_BoilerSteamV4_MLB_H" readonly><span
+                                class="units">MIb/h</span>
+<!--                                 <button type="button" class="more">Details</button> -->
+                                </td>
+                        <td class="hd">Steam Gen. by Cogen</td>
+                        <td class="textfiled"><input class="input2" id="Cogen_Stm_Prod_MLB_H" readonly /><span
+                                class="units">MIb/h</span>
+<!--                                 <button type="button" class="more">Details</button> -->
+                                </td>
+                    </tr>
+                    <tr>
+                        <td class="hd">Process Fuel Gas</td>
+                        <td class="textfiled"><input class="input2" id="TotalPlantFG" readonly /><span
+                                class="units">MMSCFD</span>
+<!--                                 <button type="button" class="more">Details</button> -->
+                        </td>
+                    </tr>
+
+                </table>
+            </div>
+        </div>
+        <div class="sas_logo" align="center"><img
+                src="https://cs-action.aramco.com/files/files/7fd50860-8ea7-4ce6-bd2f-829596c09157/content"
+                alt="Powered By SAS" width="200" height="37" title="Powered By SAS" /></div>
+
+        <!-- <input type="checkbox" name="_debug" id="_debug" value="log" class="jobexec_sample_input_checkbox" /><label
+        for="_debug">Show SAS Log</label> -->
+
+    </form>
+
+    <script src="https://cs-action.aramco.com/files/files/bcb45d44-a21f-4554-b69b-5d80f208e5ec/content"></script>
+
+</body>
+
+</html>
