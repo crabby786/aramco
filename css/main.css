@@ -93,6 +93,11 @@ div.title p {
     /* margin-top: 35px; */
 }
 
+div.title p.sub-title {
+    margin-bottom:20px;
+    font-size: 14pt;
+}
+
 div.line_green {
     background-color: #00a19a;
     /* position: fixed; */
@@ -407,3 +412,11 @@ div.sas_logo {
     cursor: pointer;
     border-radius: 8px;
 }
+
+/* css from vilas */
+.top-td-container > td {
+    vertical-align: baseline;
+    }
+#colspan2 .units {
+    top: 25%;
+  }
