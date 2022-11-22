@@ -1,0 +1,235 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+        <meta charset="utf-8">
+        <title>SWID
+        </title>
+        <!-- <base href="/aramco"> -->
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="icon" type="image/x-icon" href="favicon.ico">
+        <link rel="stylesheet" href="../css/main.css">
+
+</head>
+
+<body>
+                <div align="center" class="title">
+                        <br>
+                        <p>SWID Energy Demand Forecast - KPI
+                        </p>
+
+                        <div align="center">
+
+                                <p class="sub-title"> Injected Water, Transferred Water, Production Water and Ambient
+                                        Temperature </p>
+
+                                <table>
+                                        <tr>
+                                                <td class="hd">HAWIP Injected Water </td>
+                                                <td class="textfiled"><input type="number" class="input1" id="HAWIP_Injected_Water"
+                                                                min=1 step=0.0000000001><span class="units">MBD</span>
+                                                </td>
+                                                <td class="hd">HAWIP Transferred Water </td>
+                                                <td class="textfiled"><input type="number" class="input1"
+                                                                id="HAWIP_Transferred_Water" min=1 step=0.0000000001><span
+                                                                class="units">MBD</span></td>
+                                                <td class="hd">HAWIP Ambient Temperature </td>
+                                                <td class="textfiled"><input type="number" class="input1"
+                                                                id="HAWIP_Ambient_Temperature" min=1><span class="units">Deg F</span>
+                                                </td>
+                                        </tr>
+                                        <tr>
+                                                <td class="hd" colspan="2">UWIP1 Injected Water </td>
+                                                <td  colspan="2"><div class="textfiled">
+                                                        <input type="number" class="input1"
+                                                                        id="UWIP1_Injected_Water" min=1 step=0.0000000001><span
+                                                                        class="units">MBD</span>
+                                                </div></td>
+                                                <td class="hd">UWIP1 Ambient Temperature </td>
+                                                <td class="textfiled"><input type="number" class="input1"
+                                                                id="UWIP1_Ambient_Temperature" min=1 step=0.0000000001><span
+                                                                class="units">Deg F </span></td>
+
+                                        </tr>
+                                        <tr>
+                                                <td class="hd" colspan="2">UWIP3 Injected Water </td>
+                                                <td class="" colspan="2"><div class="textfiled">
+                                                        <input type="number" class="input1"
+                                                                        id="UWIP3_Injected_Water" min=1 step=0.0000000001><span
+                                                                        class="units">MBD</span>
+                                                </div></td>
+                                                <td class="hd">UWIP3 Ambient Temperature </td>
+                                                <td class="textfiled"><input type="number" class="input1"
+                                                                id="UWIP3_Ambient_Temperature" min=1 step=0.0000000001><span
+                                                                class="units">Deg F </span></td>
+
+                                        </tr>
+                                        <tr>
+                                                <td class="hd" colspan="2">UWIP4 Injected Water </td>
+                                                <td class="" colspan="2"><div class="textfiled">
+                                                        <input type="number" class="input1"
+                                                                        id="UWIP4_Injected_Water" min=1 step=0.0000000001><span
+                                                                        class="units">MBD</span>
+                                                </div></td>
+                                                <td class="hd">UWIP4 Ambient Temperature </td>
+                                                <td class="textfiled"><input type="number" class="input1"
+                                                                id="UWIP4_Ambient_Temperature" min=1 step=0.0000000001><span
+                                                                class="units">Deg F </span></td>
+
+                                        </tr>
+                                        <tr>
+                                                <td class="hd" colspan="2">UWIP5 Injected Water </td>
+                                                <td class="" colspan="2"><div class="textfiled">
+                                                        <input type="number" class="input1"
+                                                                        id="UWIP5_Injected_Water" min=1 step=0.0000000001><span
+                                                                        class="units">MBD</span>
+                                                </div></td>
+                                                <td class="hd">UWIP5 Ambient Temperature </td>
+                                                <td class="textfiled"><input type="number" class="input1"
+                                                                id="UWIP5_Ambient_Temperature" min=1 step=0.0000000001><span
+                                                                class="units">Deg F </span></td>
+
+                                        </tr>
+                                        <tr>
+                                                <td class="hd" colspan="2">UWSP Transferred Water </td>
+                                                <td class="" colspan="2"><div class="textfiled">
+                                                        <input type="number" class="input1"
+                                                                        id="UWSP_Transferred_Water" min=1 step=0.0000000001><span
+                                                                        class="units">MBD</span>
+                                                </div></td>
+                                                <td class="hd">UWSP Ambient Temperature </td>
+                                                <td class="textfiled"><input type="number" class="input1"
+                                                                id="UWSP_Ambient_Temperature" min=1 step=0.0000000001><span
+                                                                class="units">Deg F </span></td>
+
+                                        </tr>
+                                        <tr>
+                                                <td class="hd" >ADWIP Injected Water	 </td>
+                                                <td class="textfiled" ><input type="number" class="input1"
+                                                                id="ADWIP_Injected_Water" min=1 step=0.0000000001><span
+                                                                class="units">MBD</span></td>
+                                                <td class="hd">ADWIP Transferred Water	 </td>
+                                                <td class="textfiled"><input type="number" class="input1"
+                                                                id="ADWIP_Transferred_Water" min=1 step=0.0000000001><span
+                                                                class="units">MBD </span></td>
+                                                <td class="hd">ADWIP Ambient Temperature </td>
+                                                <td class="textfiled"><input type="number" class="input1"
+                                                                id="ADWIP_Ambient_Temperature" min=1 step=0.0000000001><span
+                                                                class="units">Deg F</span></td>
+
+                                        </tr>
+
+                                        
+                                        <tr>
+                                                <td class="hd" colspan="2"> QSWP Production Water </td>
+                                                <td class="" colspan="2"><div class="textfiled">
+                                                        <input type="number" class="input1"
+                                                                        id="QSWP_Production_Water" min=1 step=0.0000000001><span
+                                                                        class="units">MBD</span>
+                                                </div></td>
+                                                <td class="hd">QSWP Ambient Temperature	 </td>
+                                                <td class="textfiled"><input type="number" class="input1"
+                                                                id="QSWP_Ambient_Temperature" min=1 step=0.0000000001><span
+                                                                class="units">Deg F </span></td>
+
+                                        </tr>
+
+                                        <tr>
+                                                <td class="loaddiv" align="center">
+                                                        <!-- <div id="loading" class="loading"></div> -->
+                                                        <div id="loading" class="loading">
+                                                                <div></div>
+                                                                <div></div>
+                                                                <div></div>
+                                                                <div></div>
+                                                        </div>
+                                                </td>
+                                        </tr>
+                                </table>
+
+                                <div class="btn pb-3" align="center">
+                                        <button id="calculate" type="button" class="button"> Calculation </button>
+                                        <button type="reset" class="clearbtn">Clear Inputs</button>
+                                        <button type="button" class="maintbtn">Maintain</button>
+                                        <button id="printpdf" type="button" class="printbtn">Print Report</button>
+                                </div>
+                        </div>
+
+                </div>
+
+                <div class="line_green"></div>
+
+                <div id="fixvalue" align="center">
+                        <div class="margin50">
+                                <p class="section">Fixed parameters</p>
+                                <table>
+                                        <tr>
+                                                <td class="hd">Fuel Gas Heating Value</td>
+                                                <td class="textfiled"><input class="input2" id="swHeatValueGas"
+                                                                value="1056" type="number"><span
+                                                                class="units">(BTU/SCF)</span></td>
+                                                <td class="hd">Power Import Efficiency</td>
+                                                <td class="textfiled"><input class="input2" id="swPowerImp"
+                                                                value="1056" type="number"><span
+                                                                class="units">%</span></td>
+                                                </td>
+                                                <td class="hd">Power Conversion Factor</td>
+                                                <td class="textfiled"><input class="input2" id="swPowerConversion"
+                                                                value="1056" type="number">
+                                                                <!-- <span class="units"></span> -->
+                                                        </td>
+                                                </td>
+                                        </tr>
+                                </table>
+                        </div>
+                </div>
+                <!--                 <div class="line_gray"></div> -->
+                <div id="KPI" align="center" class="sub-section">
+                        <div>
+                                <p class="section"> Energy Intensity KPI</p>
+                                <table>
+                                        <tr>
+                                                <td class="hd">Total Production</td>
+                                                <td>
+                                                        <div class="textfiled">
+                                                                <input class="input2" id="EnergyProd_MBOE" readonly />
+                                                                <span class="units">MBDoe</span>
+                                                        </div>
+                                                </td>
+                                                <td class="hd">Predicted Total Energy </td>
+                                                <td>
+                                                        <div class="textfiled">
+                                                                <input class="input2" readonly
+                                                                        id="Energy_Consumption_MMBTUH" /><span
+                                                                        class="units">MMbtu/h</span>
+                                                        </div>
+                                                </td>
+
+                                        </tr>
+                                        <tr id="energy_intensity_row">
+                                                <td class="hd"></td>
+                                                <td class="hd" id="energy_intensity"> Predicted Energy Intensity </td>
+                                                <td>
+                                                        <div class="textfiled">
+                                                                <input class="input2" id="EIN" readonly /><span
+                                                                        class="units">KBtu/Boe</span>
+
+                                                        </div>
+                                                </td>
+
+                                                <td class="hd"></td>
+
+
+                                        </tr>
+                                </table>
+                        </div>
+                </div>
+                <div class="sas_logo" align="center"><img
+                                src="https://cs-action.aramco.com/files/files/7fd50860-8ea7-4ce6-bd2f-829596c09157/content"
+                                alt="Powered By SAS" width="200" height="37" title="Powered By SAS" /></div>
+
+              
+
+</body>
+
+</html>

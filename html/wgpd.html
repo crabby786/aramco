@@ -1,0 +1,213 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+        <meta charset="utf-8">
+        <title>WGPD</title>
+        <!-- <base href="/aramco"> -->
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="icon" type="image/x-icon" href="favicon.ico">
+        <link rel="stylesheet" href="../css/main.css">
+
+</head>
+
+<body>
+                <div align="center" class="title">
+                        <br>
+                        <p>WGPD Energy Demand Forecast - KPI </p>
+
+                        <div align="center" >
+
+                                <p class="sub-title"> C2, C3, C4, C5, Condensate, Sales Gas, Sulfur, Power Generation, Excess Steam and Ambient Temperature</p>
+
+                                <table>
+                                        <tr>
+                                                <td class="hd">C2</td>
+                                                <td class="textfiled"><input type="number" class="input1"
+                                                                id="C2" min=1 step=0.0000000001><span
+                                                                class="units">MBD</span></td>
+                                                <td class="hd">C3</td>
+                                                <td class="textfiled"><input type="number" class="input1" id="C3"
+                                                                min=1 step=0.0000000001><span
+                                                                class="units">MBD</span></td>
+                                                <td class="hd">C4</td>
+                                                <td class="textfiled"><input type="number" class="input1"
+                                                                id="C4" min=1><span
+                                                                class="units">MBD</span></td>
+                                        </tr>
+                                        <tr>
+                                                <td class="hd">C5</td>
+                                                <td class="textfiled"><input type="number" class="input1"
+                                                                id="C5" min=1 step=0.0000000001><span
+                                                                class="units">MBD</span></td>
+                                                <td class="hd">Condensate</td>
+                                                <td class="textfiled"><input type="number" class="input1" id="condensate"
+                                                                min=1 step=0.0000000001><span
+                                                                class="units">MBD</span></td>
+                                                <td class="hd">Sales Gas</td>
+                                                <td class="textfiled"><input type="number" class="input1"
+                                                                id="Sales_Gas" min=1 step=0.0000000001><span
+                                                                class="units">MMSCFD</span></td>
+
+                                        </tr>
+                                        <tr>
+                                                <td class="hd">Sulfur</td>
+                                                <td class="textfiled"><input type="number" class="input1"
+                                                                id="sulfur" min=1 step=0.0000000001><span
+                                                                class="units">MTD</span></td>
+                                                <td class="hd">Power Generation	</td>
+                                                <td class="textfiled"><input type="number" class="input1" id="Power_Generation"
+                                                                min=1 step=0.0000000001><span
+                                                                class="units">MW</span></td>
+                                                <td class="hd">Excess Steam</td>
+                                                <td class="textfiled"><input type="number" class="input1"
+                                                                id="Excess_Steam" min=1 step=0.0000000001><span
+                                                                class="units">Mlbh</span></td>
+
+                                        </tr>
+
+                                        <tr>
+                                                <td colspan="3" class="hd" style="text-align: right;" >Ambient Temperature</td>
+                                                <td  class="textfiled" style="text-align: left;" >
+                                                        <input type="number" class="input1"
+                                                                id="Ambient_Temperature" min=1 step=0.0000000001><span
+                                                                class="units">Deg F</span>
+                                                        </td>
+                                                <td colspan="2" ></td>
+                                        </tr>
+
+                                        <tr>
+                                                <td class="loaddiv" align="center">
+                                                        <!-- <div id="loading" class="loading"></div> -->
+                                                        <div id="loading" class="loading">
+                                                                <div></div>
+                                                                <div></div>
+                                                                <div></div>
+                                                                <div></div>
+                                                        </div>
+                                                </td>
+                                        </tr>
+                                </table>
+
+                                <div class="btn pb-3" align="center">
+                                        <button id="calculate" type="button" class="button"> Calculation </button>
+                                        <button type="reset" class="clearbtn">Clear
+                                                Inputs</button>
+                                        <button type="button" class="maintbtn">Maintain</button>
+                                        <button id="printpdf" type="button" class="printbtn">Print Report</button>
+                                </div>
+                        </div>
+
+                </div>
+
+                <div class="line_green"></div>
+
+                <div id="fixvalue" align="center">
+                        <div class="margin50">
+                                <p class="section">Fixed parameters</p>
+                                <table>
+                                        <tr>
+                                                <td class="hd">Heating Value Gas	
+                                                </td>
+                                                <td class="textfiled"><input class="input2" id="wgHeatValueGas"
+                                                                value="1056" type = "number"><span
+                                                                class="units">(BTU/SCF)</span></td>
+                                                <td class="hd">Heating Value C2</td>
+                                                <td class="textfiled"><input class="input2" id="wgHeatValueC2"
+                                                                value="1056" type = "number"><span
+                                                                class="units">(BTU/SCF)</span></td>
+                                                </td>
+                                                <td class="hd">Heating Value C3	
+                                                </td>
+                                                <td class="textfiled"><input class="input2" id="wgHeatValueC3"
+                                                                value="1056" type = "number"><span
+                                                                class="units">(BTU/SCF)</span></td>
+                                                </td>
+                                        </tr>
+                                        <tr>
+                                                
+                                                <td class="hd">Heating Value C4	
+                                                </td>
+                                                <td class="textfiled"><input class="input2" id="wgHeatValueC4"
+                                                                value="1056" type = "number"><span
+                                                                class="units">(BTU/SCF)</span></td>
+                                                </td>
+                                                <td class="hd">Heating Value C5	
+                                                </td>
+                                                <td class="textfiled"><input class="input2" id="wgHeatValueC5"
+                                                                value="1056" type = "number"><span
+                                                                class="units">(BTU/SCF)</span></td>
+                                                </td>
+                                                <td class="hd">Heating Value Condensate </td>
+                                                <td class="textfiled"><input class="input2" id="wgHeatValueCondensate"
+                                                                value="1056" type = "number"><span
+                                                                class="units">(BTU/SCF)</span></td>
+                                                </td>
+                                        </tr>
+                                </table>
+                        </div>
+                </div>
+<!--                 <div class="line_gray"></div> -->
+                <div id="KPI" align="center" class = "sub-section" >
+                        <div >
+                                <p class="section"> Energy Intensity KPI</p>
+                                <table>
+                                        <tr>
+                                                <td class="hd">Total Production</td>
+                                                <td class=""><div class="textfiled">
+                                                        <input class="input2" id="EnergyProd_MBOE"
+                                                                        readonly /><span class="units">MBDoe</span>
+                                                </div>
+                                                </td>
+                                                <td class="hd">Predicted Total Energy</td>
+                                                <td class="textfiled"><input class="input2"
+                                                                id="Energy_MMBTUH" readonly /><span
+                                                                class="units">MMbtu/h</span>
+                                                </td>
+     
+                                        </tr>
+                                        
+                                        <tr id =  "energy_intensity_row" >
+                                                <td class="hd"></td>
+                                                <td class="hd" id = "energy_intensity" >  Predicted Energy Intensity   </td>
+                                                <td class="textfiled"><input class="input2" id="EIN"
+                                                        readonly /><span class="units">KBtu/Boe</span></td>
+
+
+                                                <td class="hd"></td>
+     
+                                        </tr>
+                                </table>
+                        </div>
+                </div>
+<!--                 <div class="line_gray"></div> -->
+                <div id="Predict" align="center">
+                        <div class="margin35">
+                                <p class="section">Predicted Energy Streams</p>
+                                <table>
+                                        <tr>
+                                                <td class="hd">Predicted Power </td>
+                                                <td class="textfiled"><input class="input2" id="Predicted_Power"
+                                                                readonly /><span class="units">MW</span>
+                                                </td>
+                                                <td class="hd">Predicted Steam </td>
+                                                <td class="textfiled"><input class="input2" id="Predicted_Steam"
+                                                                readonly /><span class="units"> Mlbh </span>
+                                                </td>
+                                                <td class="hd">Predicted Fuel Gas  </td>
+                                                <td class="textfiled"><input class="input2" id="Predicted_Fuel_Gas"
+                                                                readonly /><span class="units"> MMSCFD  </span>
+                                                </td>
+                                        </tr>
+
+                                </table>
+                        </div>
+                </div>
+                <div class="sas_logo" align="center"><img
+                                src="https://cs-action.aramco.com/files/files/7fd50860-8ea7-4ce6-bd2f-829596c09157/content"
+                                alt="Powered By SAS" width="200" height="37" title="Powered By SAS" /></div>
+
+
+</body>
+
+</html>
