@@ -788,3 +788,27 @@ background-color: #04AA6D;
   color: #ffffff;
   font-size: 18pt;
 }
+.bg-d-blue {
+  background-color: #0033A0;
+}
+.bg-blue {
+  background-color: #00A3E0;
+}
+.bg-d-green {
+  background-color: #00843D;
+}
+.bg-green {
+  background-color: #84BD00;
+}
+.grey1 {
+  background-color: #323232    ;
+}
+.grey2 {
+  background-color: #5F6369    ;
+}
+.grey3 {
+  background-color: #C0C0C0     ;
+}
+.grey4 {
+  background-color: #DADADA     ;
+}
