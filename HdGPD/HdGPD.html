@@ -1,0 +1,204 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>HdGPD</title>
+  <!-- <base href="/aramco"> -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <!-- <link rel="stylesheet" href="https://sasserver.demo.sas.com/files/files/3e9cdd75-a081-45c7-ac70-2e51399e00d2/content"> -->
+  <link rel="stylesheet" href="./main.css">
+
+</head>
+
+<body>
+  <!-- <div id="load" class="load"></div> -->
+
+  <form action="/SASJobExecution/" align="center">
+    <input type="hidden" name="_program" value="$PROGRAM$" />
+    <input type="hidden" name="_action" value="wait,execute" />
+    <input type="hidden" name="_output_type" value="html" />
+    <div align="center" class="title">
+      <p class = "section" >Production Streams</p>
+      <div align="center">
+        <table>
+          <tr>
+            <td class="hd">Total Condensate</td>
+            <td class="textfiled"><input type="number" class="input1" id="Condensate_MBD" min=1 step=0.0000000001><span class="units">MBD</span></td>
+            <td class="hd">Total Sales Gas</td>
+            <td class="textfiled"><input type="number" class="input1" id="SG_MMSCFD" min=1 step=0.0000000001><span class="units">MMSCFD</span></td>
+            <td class="hd">Ambient Temperature</td>
+            <td class="textfiled"><input type="number" class="input1" id="Temp_Deg_F" min=1 step=0.0000000001><span class="units">Deg F</span></td>
+          </tr>
+          <!--                     <tr> -->
+          <!--                         <td class="hd">Power Generation </td> -->
+          <!--                         <td class="textfiled"><input type="number" class="input1" id="CG_Power_Generation_MW" min=1 -->
+          <!--                                 step=0.0000000001><span class="units">MW</span></td> -->
+          <!--                         <td class="hd">Excess Steam</td> -->
+          <!--                         <td class="textfiled"><input type="number" class="input1" id="Excess_Steam" min=1 -->
+          <!--                                 step=0.0000000001><span class="units">Mlb/h</span></td> -->
+          <!--                         <td class="hd">Amp. Temp</td> -->
+          <!--                         <td class="textfiled"><input type="number" class="input1" id="Amb_Temp_F" min=1 -->
+          <!--                                 step=0.0000000001><span class="units">F</span> -->
+          <!--                         </td> -->
+          <!--                     </tr> -->
+
+          <tr>
+            <td></td>
+            <td></td>
+            <td class="loaddiv" align="center">
+              <!-- <div id="loading" class="loading"></div> -->
+              <div id="loading" class="loading">
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+              </div>
+            </td>
+          </tr>
+        </table>
+        <div class="btn" align="center" style="padding:15px">
+          <button id="calculation" type="button" class="button" onclick="callx()">Calculation</button>
+          <button type="reset" class="button">Clear
+            Inputs</button>
+          <button type="button" class="button">Maintain</button>
+          <button id="printpdf" type="button" class="button">Print Report</button>
+        </div>
+
+        <!-- <input type="reset" value="Clear Inputs" class="button" style="background-color: #ed702a;" /> -->
+        <!-- <input type="submit" value="Run code" class="jobexec_sample_input_submit" /> -->
+      </div>
+
+    </div>
+    <div class="line_green"></div>
+
+    <div id="fixvalue" align="center"  >
+      <div class="">
+        <p class="section">Fixed Values</p>
+        <table>
+          <tr>
+            <td class="hd">HV Gas</td>
+            <td class="textfiled"><input class="input2" id="HV_Gas" value="1080" readonly><span class="units">Btu/Scf</span></td>
+            <td class="hd">HV Condensate</td>
+            <td class="textfiled"><input class="input2" id="HV_Condensate" value="5418" readonly><span class="units">Btu/Scf</span></td>
+            <!--                         <td class="hd">Bolier efficiency</td> -->
+            <!--                         <td class="textfiled"><input class="input1" id="boilerEff" min=0 oninput="validity.valid||(value='');"><span  -->
+            <!--                         		class="units">%</span> -->
+            </td>
+          </tr>
+          <tr>
+            <td class="hd">Power Conversion Factor</td>
+            <td class="textfiled"><input class="input2" id="Power_Conversion_Factor" value="3.412" readonly><span class="units">MW/Scf</span>
+            </td>
+            <!--                         <td class="hd">Exported power efficiency</td> -->
+            <!--                         <td class="textfiled"><input class="input1" id="powerExpEffcieny" min=0 oninput="validity.valid||(value='');"><span -->
+            <!--                                 class="units">%</span></td> -->
+            <td class="hd">Power Import Efficiency</td>
+            <td class="textfiled"><input class="input2" id="Power_Import_Efficiency" value="0.407" readonly><span class="units">%</span>
+            </td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    <div class=""></div>
+    <div id="KPI" align="center">
+      <div class="">
+            <div class="section-title">
+              <p >Predicted Energy Intensity</p>
+            </div>
+        <table>
+          <tr>
+            <td class="hd">
+              Energy Intensity KPI
+            </td>
+            <td class="textfiled"><input class="input2" id="Energy_Intensity" readonly value = "13.0000" /><span class="units">KBtu/Boe</span></td>
+            <td class="hd">Total Energy Consumption</td>
+            <td class="textfiled"><input class="input2" id="Total_Energy" readonly value = "172.0000" /><span class="units">MMbtu/h</span>
+            </td>
+            <td class="hd">Total Production</td>
+            <td class="textfiled"><input class="input2" id="Total_Production" readonly value = "172.0000" /><span class="units">MBDoe</span>
+            </td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    <div class=""></div>
+    <div id="Predict" align="center" style = "padding-bottom: 2em;" >
+      <div class="">
+        <p class="section">Predicted Energy Streams</p>
+        <table>
+          <tr>
+            <td class="hd">Predicted Power</td>
+            <td class="textfiled"><input class="input2" id="P_Power_MW" readonly value = "172.0000" /><span class="units">MW</span>
+              <!--                                 <button type="button" class="more">Details</button> -->
+            </td>
+
+            <td class="hd">Predicted Fuel Gas</td>
+            <td class="textfiled"><input class="input2" id="P_FG_MMSCFD" readonly value = "172.0000" /><span class="units">MMSCFD</span>
+              <!--                                  <button type="button" class="more">Details</button> -->
+            </td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    <!--         <div class="sas_logo" align="center"><img -->
+    <!--                 src="https://sasserver.demo.sas.com/files/files/7fd50860-8ea7-4ce6-bd2f-829596c09157/content" -->
+    <!--                 alt="Powered By SAS" width="200" height="37" title="Powered By SAS" /></div> -->
+
+    <!-- <input type="checkbox" name="_debug" id="_debug" value="log" class="jobexec_sample_input_checkbox" /><label
+        for="_debug">Show SAS Log</label> -->
+
+  </form>
+
+  <script>
+    async function callx() {
+      const Condensate_MBD = document.getElementById("Condensate_MBD").value || 0;
+      const SG_MMSCFD = document.getElementById("SG_MMSCFD").value || 0;
+      const Temp_Deg_F = document.getElementById("Temp_Deg_F").value || 0;
+      const HV_Gas = document.getElementById("HV_Gas").value || 0;
+      const HV_Condensate = document.getElementById("HV_Condensate").value || 0;
+      const Power_Conversion_Factor = document.getElementById("Power_Conversion_Factor").value || 0;
+      const Power_Import_Efficiency = document.getElementById("Power_Import_Efficiency").value || 0;
+      displayLoading();
+      var url = 'https://sasserver.demo.sas.com/SASJobExecution/';
+      var sas_job = '/jobDefinitions/definitions/3cc59c79-622f-4bdf-812e-1b5e28eef08f';
+      url = url.concat('?', '_job=', sas_job, '&', 'Condensate_MBD=', Condensate_MBD, '&', 'SG_MMSCFD=', SG_MMSCFD, '&', 'Temp_Deg_F=', Temp_Deg_F, '&', 'HV_Gas=', HV_Gas, '&', 'HV_Condensate=', HV_Condensate, '&', 'Power_Conversion_Factor=', Power_Conversion_Factor, '&', 'Power_Import_Efficiency=', Power_Import_Efficiency);
+      let response = await fetch(url);
+      if (response.ok) {
+        let service_response = await response.json();
+        //console.log(service_response);
+        document.getElementById("P_FG_MMSCFD").value = getPositiveValue(service_response.P_FG_MMSCFD);
+        document.getElementById("P_Power_MW").value = getPositiveValue(service_response.P_Power_MW);
+        document.getElementById("Energy_Intensity").value = getPositiveValue(service_response.Energy_Intensity);
+        document.getElementById("Total_Energy").value = getPositiveValue(service_response.Total_Energy);
+        document.getElementById("Total_Production").value = getPositiveValue(service_response.Total_Production);
+        hideLoading();
+      } else {
+        alert("HTTP-Error: " + response.status);
+      }
+    }
+
+    function getPositiveValue(value) {
+      if (value < 0) {
+        return 0;
+      }
+      return value;
+    }
+    const loader = document.getElementById("loading");
+
+    function displayLoading() {
+      loader.classList.add("display");
+      setTimeout(() => {
+        loader.classList.remove("display");
+      }, 10000);
+    }
+
+    function hideLoading() {
+      loader.classList.remove("display");
+    }
+  </script>
+
+</body>
+
+</html>

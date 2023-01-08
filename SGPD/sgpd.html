@@ -1,0 +1,352 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>SGPD</title>
+  <!-- <base href="/aramco"> -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <style>
+    .tab {
+      display: none;
+    }
+  </style>
+  <!-- <link rel="stylesheet" href="https://sasserver.demo.sas.com/files/files/42ae1909-e620-4055-b440-01d0f307fa2d/content"> -->
+  <link rel="stylesheet"                href="./main.css">
+
+
+</head>
+
+<body>
+  <!-- <div id="load" class="load"></div> -->
+  <form action="/SASJobExecution/" align="center">
+    <input type="hidden" name="_program" value="$PROGRAM$" />
+    <input type="hidden" name="_action" value="wait,execute" />
+    <input type="hidden" name="_output_type" value="html" />
+
+    <!--         <div > -->
+    <div align="center" class="title">
+        <div class="bg-wrapper">
+                <div style = "" class="Aramco_logo">
+                        <img src="./images/aramco_log2.png" alt="logo" class="" >
+                      </div>
+                      <br>
+                      <p>SGPD Energy Demand Forecast</p>
+                      
+                
+                      <div align="center" class="tab">
+                <p class="sub-title"> UT Crude Oil and Gas</p>
+                <table>
+                  <tr>
+                    <td class="hd">UT4 Crude Oil</td>
+                    <td class="textfiled"><input type="number" class="input1" id="UT4_Crude_Oil_MBD" min=1 step=0.0000000001><span class="units">MBD</span></td>
+                    <td class="hd">UT4 Gas</td>
+                    <td class="textfiled"><input type="number" class="input1" id="UT4_Gas_MMSCFD" min=1 step=0.0000000001><span class="units">MMSCFD</span></td>
+                    <td class="hd">UT4 Water Cut Ratio</td>
+                    <td class="textfiled"><input type="number" class="input1" id="P_UT4_Water_Cut" min=1><span class="units">%</span></td>
+                  </tr>
+                  <tr>
+                    <td class="hd">UT7 Crude Oil</td>
+                    <td class="textfiled"><input type="number" class="input1" id="UT7_Crude_Oil_MBD" min=1 step=0.0000000001><span class="units">MBD</span></td>
+                    <td class="hd">UT7 Gas</td>
+                    <td class="textfiled"><input type="number" class="input1" id="UT7_Gas_MMSCFD" min=1 step=0.0000000001><span class="units">MMSCFD</span></td>
+                    <td class="hd">UT7 Water Cut Ratio</td>
+                    <td class="textfiled"><input type="number" class="input1" id="UT7_Water_Cut_Ratio" min=1 step=0.0000000001><span class="units">%</span></td>
+                  </tr>
+                  <tr>
+                    <td class="hd">UT8 Crude Oil</td>
+                    <td class="textfiled"><input type="number" class="input1" id="UT8_Crude_Oil_MBD" min=1 step=0.0000000001><span class="units">MBD</span></td>
+                    <td class="hd">UT8 Gas</td>
+                    <td class="textfiled"><input type="number" class="input1" id="UT8_Gas_MMSCFD" min=1 step=0.0000000001><span class="units">MMSCFD</span></td>
+                    <td class="hd">UT8 Water Cut Ratio</td>
+                    <td class="textfiled"><input type="number" class="input1" id="UT8_Water_Cut_Ratio" min=1 step=0.0000000001><span class="units">%</span></td>
+                  </tr>
+                  <tr>
+                    <td class="hd">UT9 Crude Oil</td>
+                    <td class="textfiled"><input type="number" class="input1" id="UT9_Crude_Oil_MBD" min=1 step=0.0000000001><span class="units">MBD</span></td>
+                    <td class="hd">UT9 Gas</td>
+                    <td class="textfiled"><input type="number" class="input1" id="UT9_Gas_MMSCFD" min=1 step=0.0000000001><span class="units">MMSCFD</span></td>
+                    <td class="hd">UT9 Water Cut Ratio</td>
+                    <td class="textfiled"><input type="number" class="input1" id="UT9_Water_Cut_Ratio" min=1 step=0.0000000001><span class="units">%</span></td>
+                  </tr>
+                  <tr>
+                    <td class="hd">UT10 Crude Oil</td>
+                    <td class="textfiled"><input type="number" class="input1" id="UT10_Crude_Oil_MBD" min=1 step=0.0000000001><span class="units">MBD</span></td>
+                    <td class="hd">UT10 Gas</td>
+                    <td class="textfiled"><input type="number" class="input1" id="UT10_Gas_MMSCFD" min=1 step=0.0000000001><span class="units">MMSCFD</span></td>
+                    <td class="hd">UT10 Water Cut Ratio</td>
+                    <td class="textfiled"><input type="number" class="input1" id="UT10_Water_Cut_Ratio" min=1 step=0.0000000001><span class="units">%</span></td>
+                  </tr>
+                  <tr>
+                    <td class="hd">UT11 Crude Oil</td>
+                    <td class="textfiled"><input type="number" class="input1" id="UT11_Crude_Oil_MBD" min=1 step=0.0000000001><span class="units">MBD</span></td>
+                    <td class="hd">UT11 Gas</td>
+                    <td class="textfiled"><input type="number" class="input1" id="UT11_Gas_MMSCFD" min=1 step=0.0000000001><span class="units">MMSCFD</span></td>
+                    <td class="hd">UT11 Water Cut Ratio</td>
+                    <td class="textfiled"><input type="number" class="input1" id="UT11_Water_Cut_Ratio" min=1 step=0.0000000001><span class="units">%</span></td>
+                  </tr>
+                  <tr>
+                    <td class="hd">UT12 Crude Oil</td>
+                    <td class="textfiled"><input type="number" class="input1" id="UT12_Crude_Oil_MBD" min=1 step=0.0000000001><span class="units">MBD</span></td>
+                    <td class="hd">UT12 Gas</td>
+                    <td class="textfiled"><input type="number" class="input1" id="UT12_Gas_MMSCFD" min=1 step=0.0000000001><span class="units">MMSCFD</span></td>
+                    <td class="hd">UT12 Water Cut Ratio</td>
+                    <td class="textfiled"><input type="number" class="input1" id="UT12_Water_Cut_Ratio" min=1 step=0.0000000001><span class="units">%</span></td>
+                  </tr>
+                  <tr>
+                    <td class="hd">UT13 Crude Oil</td>
+                    <td class="textfiled"><input type="number" class="input1" id="UT13_Crude_Oil_MBD" min=1 step=0.0000000001><span class="units">MBD</span></td>
+                    <td class="hd">UT13 Gas</td>
+                    <td class="textfiled"><input type="number" class="input1" id="UT13_Gas_MMSCFD" min=1 step=0.0000000001><span class="units">MMSCFD</span></td>
+                    <td class="hd">UT13 Water Cut Ratio</td>
+                    <td class="textfiled"><input type="number" class="input1" id="UT13_Water_Cut_Ratio" min=1 step=0.0000000001><span class="units">%</span></td>
+                  </tr>
+                  <tr>
+                    <td class="loaddiv" align="center">
+                      <!-- <div id="loading" class="loading"></div> -->
+                    </td>
+                  </tr>
+                </table>
+                <div class="btn" align="center">
+                  <button id="Calculate_Water_Cut_UT" type="button" class="button"> Calculate Water
+                    Cut </button>
+                  <button id="Calculate_Power_Ut" class="button" type="button"> Calculate Power
+                  </button>
+                  <button type="reset" class="button">Clear
+                    Inputs</button>
+                  <button type="button" class="button">Maintain</button>
+                  <button id="printpdf" type="button" class="button">Print Report</button>
+                </div>
+                      </div>
+                      <div id="loading" class="loading">
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                      </div>
+                
+                      <!-- ------------------ HW Crude Oil and Gas -------------------- -->
+                      <div align="center" class="tab">
+                <p class="sub-title"> HW Crude Oil and Gas</p>
+                <table id="sgpd-hw-table">
+                  <tr>
+                    <td class="hd">HW2 Crude Oil</td>
+                    <td class="textfiled"><input type="number" class="input1 coF" id="HW2_Crude_Oil_MBD" min=1 step=0.0000000001><span class="units">MBD</span></td>
+                    <td class="hd">HW2 Gas</td>
+                    <td class="textfiled"><input type="number" class="input1 gasF" id="HW2_Gas_MMSCFD" min=1 step=0.0000000001><span class="units">MMSCFD</span></td>
+                    <td class="hd">HW2 Water Cut Ratio</td>
+                    <td class="textfiled"><input type="number" class="input1 watF" id="P_HW2_Water_Cut" min=1><span class="units">%</span></td>
+                  </tr>
+                  <tr>
+                    <td class="hd">HW3 Crude Oil</td>
+                    <td class="textfiled"><input type="number" class="input1 coF" id="HW3_Crude_Oil_MBD" min=1 step=0.0000000001><span class="units">MBD</span></td>
+                    <td class="hd">HW3 Gas</td>
+                    <td class="textfiled"><input type="number" class="input1 gasF" id="HW3_Gas_MMSCFD" min=1 step=0.0000000001><span class="units">MMSCFD</span></td>
+                    <td class="hd">HW3 Water Cut Ratio</td>
+                    <td class="textfiled"><input type="number" class="input1 watF" id="P_HW3_Water_Cut" min=1 step=0.0000000001><span class="units">%</span></td>
+                  </tr>
+                  <tr>
+                    <td class="hd">HW4 Crude Oil</td>
+                    <td class="textfiled"><input type="number" class="input1 coF" id="HW4_Crude_Oil_MBD" min=1 step=0.0000000001><span class="units">MBD</span></td>
+                    <td class="hd">HW4 Gas</td>
+                    <td class="textfiled"><input type="number" class="input1 gasF" id="HW4_Gas_MMSCFD" min=1 step=0.0000000001><span class="units">MMSCFD</span></td>
+                    <td class="hd">HW4 Water Cut Ratio</td>
+                    <td class="textfiled"><input type="number" class="input1 watF" id="P_HW4_Water_Cut" min=1 step=0.0000000001><span class="units">%</span></td>
+                  </tr>
+                  <tr>
+                    <td class="loaddiv" align="center">
+                      <!-- <div id="loading" class="loading"></div> -->
+                    </td>
+                  </tr>
+                </table>
+                <br />
+                <div class="btn" align="center">
+                  <button id="Calculate_Water_Cut_Hw" type="button" class="button" onclick='calWaterHw({id:"sgpd-hw-table"});'> Calculate Water
+                    Cut </button>
+                  <button id="Calculate_Power_Hw" type="button" class="button" onclick='calPowerHw({id:"sgpd-hw-table"});'> Calculate Power
+                  </button>
+                  <button type="reset" class="clearbtn_Hw">Clear
+                    Inputs</button>
+                  <button type="button" class="maintbtn" id="maintain_Hw">Maintain</button>
+                  <button id="printpdf_Hw" type="button" class="printbtn">Print Report</button>
+                </div>
+                      </div>
+                
+                      <!-- ------------------ HD Crude Oil and Gas -------------------- -->
+                
+                      <div align="center" class="tab">
+                <p class="sub-title">HD Crude Oil and Gas</p>
+                <table id="sgpd-hd-table">
+                  <tr>
+                    <td class="hd">HD1 Crude Oil</td>
+                    <td class="textfiled"><input type="number" class="input1 coF" id="HD1_Crude_Oil_MBD" min=1 step=0.0000000001><span class="units">MBD</span></td>
+                    <td class="hd">HD1 Gas</td>
+                    <td class="textfiled"><input type="number" class="input1 gasF" id="HD1_Gas_MMSCFD" min=1 step=0.0000000001><span class="units">MMSCFD</span></td>
+                    <td class="hd">HD1 Water Cut Ratio</td>
+                    <td class="textfiled"><input type="number" class="input1 watF" id="P_HD1_Water_Cut" min=1 step=0.0000000001><span class="units">%</span></td>
+                  </tr>
+                  <tr class="top-td-container" id="colspan2">
+                    <td class="hd" rowspan="2">HD2 Crude Oil</td>
+                    <td class="" rowspan="2">
+                      <div class="textfiled">
+                        <input type="number" class="input1 coF" id="HD2_Crude_Oil_MBD" min=1 step=0.0000000001><span class="units">MBD</span>
+                      </div>
+                    </td>
+                    <td class="hd" rowspan="2">HD2 Gas</td>
+                    <td class="" rowspan="2">
+                      <div class="textfiled">
+                        <input type="number" class="input1 gasF" id="HD2_Gas_MMSCFD" min=1 step=0.0000000001><span class="units">MMSCFD</span>
+                      </div>
+                    </td>
+                    <td class="hd">HD2 Water Cut Ratio</td>
+                    <td class="textfiled"><input type="number" class="input1 watF" id="P_HD2_Water_Cut" min=1><span class="units">%</span></td>
+                  </tr>
+                  <tr>
+                    <td class="hd">HD2 Total Water</td>
+                    <td class="textfiled"><input type="number" class="input1 watF" id="HD2_Total_Water_MBD" min=1><span class="units">MBD</span></td>
+                  </tr>
+                  <tr>
+                    <td class="hd">HD3 Crude Oil</td>
+                    <td class="textfiled"><input type="number" class="input1 coF" id="HD3_Crude_Oil_MBD" min=1 step=0.0000000001><span class="units">MBD</span></td>
+                    <td class="hd">HD3 Gas</td>
+                    <td class="textfiled"><input type="number" class="input1 gasF" id="HD3_Gas_MMSCFD" min=1 step=0.0000000001><span class="units">MMSCFD</span></td>
+                    <td class="hd">HD3 Water Cut Ratio</td>
+                    <td class="textfiled"><input type="number" class="input1 watF" id="P_HD3_Water_Cut" min=1 step=0.0000000001><span class="units">%</span></td>
+                  </tr>
+                  <tr>
+                    <td class="loaddiv" align="center">
+                      <!-- <div id="loading" class="loading"></div> -->
+                    </td>
+                  </tr>
+                </table>
+                <br />
+                <div class="btn" align="center">
+                  <button id="Calculate_Water_Cut_Hd" type="button" class="button" onclick='calWaterHw({id:"sgpd-hd-table"});'> Calculate Water
+                    Cut </button>
+                  <button id="Calculate_Power_Hd" type="button" class="button" onclick='calPowerHw({id:"sgpd-hd-table"});'> Calculate Power
+                  </button>
+                  <button type="reset" class="clearbtn">Clear
+                    Inputs</button>
+                  <button type="button" class="maintbtn">Maintain</button>
+                  <button id="printpdf" type="button" class="printbtn">Print Report</button>
+                </div>
+                <div class="btn center">
+                  <button onclick="calculateKpi()" id="Calculate_Energy_KPIs" type="button" class="button">Calculate Energy
+                    KPIs </button>
+                </div>
+                
+                      </div>
+                
+                      <!-- Circles which indicates the steps of the form: -->
+                      <div style="text-align:center;margin-top:20px;">
+                <span class="step"></span>
+                <span class="step"></span>
+                <span class="step"></span>
+                      </div>
+                
+                      <div class="py-4">
+                <button type="button" id="prevBtn" onclick="nextPrev(-1)" class="button">Previous</button>
+                <button type="button" id="nextBtn" onclick="nextPrev(1)" class="button">Next</button>
+                      </div>
+        </div>
+
+ 
+
+    <div class="line_green"></div>
+
+    <div id="fixvalue" align="center">
+      <div class="">
+        <p class="section">Fixed Values</p>
+        <table>
+          <tr>
+            <td class="hd">HV Fuel Gas</td>
+            <td class="textfiled"><input class="input2" id="sgHeatCoGen" value="1080" type="number"><span class="units">(BTU/SCF)</span></td>
+            <td class="hd">HV Gas</td>
+            <td class="textfiled"><input class="input2" id="sgHeatValueBil" value="1700" type="number"><span class="units">(BTU/SCF)</span></td>
+            </td>
+          </tr>
+          <tr>
+            <td class="hd">Power Conversion Factor</td>
+            <td class="textfiled"><input class="input2" value="3.412" type="number" id="Power_Conversion_Factor"><span class="units"></span>
+            </td>
+            <td class="hd">Imported power efficiency</td>
+            <td class="textfiled"><input class="input2" value="0.407" type="number" id="powerImpEff"><span class="units">%</span>
+            </td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    <!-- <div class="line_gray"></div> -->
+    <div id="KPI" align="center" class="sub-section">
+      <div>
+        <p class="section">Energy Intensity</p>
+        <table>
+          <tr>
+            <td class="hd">Total Production</td>
+            <td>
+              <div class="textfiled">
+                <input class="input2" id="EnergyProd_MBOE" readonly />
+                <span class="units">MBDoe</span>
+              </div>
+            </td>
+            <td class="hd">Predicted Total Energy Consumption</td>
+            <td>
+              <div class="textfiled">
+                <input class="input2" readonly id="Energy_Consumption_MMBTUH" /><span class="units">MMbtu/h</span>
+              </div>
+            </td>
+
+          </tr>
+          <tr id="energy_intensity_row">
+            <td class="hd"></td>
+            <td class="hd" id="energy_intensity"> Predicted Energy Intensity </td>
+            <td>
+              <div class="textfiled">
+                <input class="input2" id="EIN" readonly /><span class="units">KBtu/Boe</span>
+
+              </div>
+            </td>
+
+            <td class="hd"></td>
+
+          </tr>
+        </table>
+      </div>
+    </div>
+    <!-- <div class="line_gray"></div> -->
+    <div id="Predict" align="center">
+      <div class="">
+        <p class="section">Predicted Energy Streams</p>
+        <table>
+          <tr>
+            <td class="hd">Predicted Power UT (MW)</td>
+            <td class="textfiled"><input class="input2" id="Predicted_Power_Ut_MW" readonly /><span class="units">MW</span>
+            </td>
+            <td class="hd">Predicted Power HW (MW)</td>
+            <td class="textfiled"><input class="input2" id="Predicted_Power_HW" readonly /><span class="units">MW</span>
+            </td>
+          </tr>
+          <tr>
+            <td class="hd">Predicted Power HD (MW)</td>
+            <td class="textfiled"><input class="input2" id="Predicted_Power_HD" readonly /><span class="units">MW</span>
+            </td>
+            <td class="hd">Predicted Fuel Gas HD (MMSCFD)</td>
+            <td class="textfiled"><input class="input2" id="Predicted_Fuel_Gas_HD_MMSCFD" readonly /><span class="units">MW</span>
+            </td>
+          </tr>
+
+        </table>
+      </div>
+    </div>
+    <div class="sas_logo" align="center"><img src="https://cs-action.aramco.com/files/files/7fd50860-8ea7-4ce6-bd2f-829596c09157/content" alt="Powered By SAS" width="200" height="37" title="Powered By SAS" /></div>
+  </div>
+
+    <!-- <script src="https://sasserver.demo.sas.com/files/files/1a83327a-bbf9-4781-be98-b23367973bc8/content"></script> -->
+    <script src="./sgpd.js" ></script>
+
+  </form>
+
+</body>
+
+</html>

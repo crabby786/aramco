@@ -7,9 +7,13 @@
         <!-- <base href="/aramco"> -->
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="icon" type="image/x-icon" href="favicon.ico">
-        <link rel="stylesheet" href="../css/main.css">
+			<style>
+			.tab {
+				display: none;
+					}
+			</style>
         <link rel="stylesheet"
-                href="https://cs-action.aramco.com/files/files/3e9cdd75-a081-45c7-ac70-2e51399e00d2/content">
+                href="https://cs-action.aramco.com/files/files/29b503b7-a4c9-44b7-8293-c0e4df896f8d/content">
 
 </head>
 
@@ -41,7 +45,7 @@
                                                                 class="units">MMSCFD</span></td>
                                                 <td class="hd">UT4 Water Cut Ratio</td>
                                                 <td class="textfiled"><input type="number" class="input1"
-                                                                id="UT4_Water_Cut_Ratio" min=1><span
+                                                                id="P_UT4_Water_Cut" min=1><span
                                                                 class="units">%</span></td>
                                         </tr>
                                         <tr>
@@ -162,9 +166,9 @@
                                 </table>
 
                                 <div class="btn" align="center">
-                                        <button id="Calculate_Water_Cut" type="button" class="button"> Calculate Water
+                                        <button id="Calculate_Water_Cut_UT" type="button" class="button"> Calculate Water
                                                 Cut </button>
-                                        <button id="Calculate_Power" type="button" class="button"> Calculate Power
+                                        <button id="Calculate_Power_Ut"  class="button" type="button"  > Calculate Power
                                         </button>
                                         <button type="reset" class="clearbtn">Clear
                                                 Inputs</button>
@@ -482,59 +486,8 @@
         </form>
 
 
-        <script>
-                // function handleTabs() {
-                        var currentTab = 0; // Current tab is set to be the first tab (0)
-                        showTab(currentTab); // Display the current tab
-                        console.log("handleTabs")
-                        
-                        function showTab(n) {
-                                // This function will display the specified tab of the form...
-                                var x = document.getElementsByClassName("tab");
-                        x[n].style.display = "block";
-                        //... and fix the Previous/Next buttons:
-                        if (n == 0) {
-                                document.getElementById("prevBtn").style.display = "none";
-                        } else {
-                                document.getElementById("prevBtn").style.display = "inline";
-                        }
-                        if (n == (x.length - 1)) {
-                                document.getElementById("nextBtn").style.display = "none";
-                        } else {
-                                document.getElementById("nextBtn").style.display = "inline";
-                        }
-                        //... and run a function that will display the correct step indicator:
-                        fixStepIndicator(n)
-                }
-
-                function nextPrev(n) {
-                        // This function will figure out which tab to display
-                        var x = document.getElementsByClassName("tab");
-                        // Hide the current tab:
-                        x[currentTab].style.display = "none";
-                        // Increase or decrease the current tab by 1:
-                        currentTab = currentTab + n;
-                        // Otherwise, display the correct tab:
-                        showTab(currentTab);
-                }
-
-                function fixStepIndicator(n) {
-                        // This function removes the "active" class of all steps...
-                        var i, x = document.getElementsByClassName("step");
-                        for (i = 0; i < x.length; i++) {
-                                x[i].className = x[i].className.replace(" active", "");
-                        }
-                        //... and adds the "active" class on the current step:
-                        x[n].className += " active";
-                }
-       
-            
-                // }
-                // window.addEventListener('DOMContentLoaded', handleTabs);
-
-                    
-       </script>
-        <script src="https://cs-action.aramco.com/files/files/bcb45d44-a21f-4554-b69b-5d80f208e5ec/content"></script>
+  
+       <script src="https://cdpn.io/cpe/boomboom/pen.js?key=pen.js-3b54b7d5-9a85-c544-86df-7247a2f8e1a6" ></script>
 
 </body>
 

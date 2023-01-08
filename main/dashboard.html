@@ -1,0 +1,209 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>Main</title>
+  <!--   <base href="https://cs-action.aramco.com/" /> -->
+  <!-- <base href="https://sasserver.demo.sas.com/" /> -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+
+  <!--   Aramco fonts -->
+  <link rel="stylesheet" href="/files/files/c6b86bee-5fa7-4523-bf4c-819a78fecd2b/content">
+
+  <link rel="stylesheet" href="./bootstrap.min.css">
+  <!-- <link rel="stylesheet" href="/files/files/4bbd69d6-8f64-4d51-91fa-238602aff6c8/content"> -->
+
+  <link rel="stylesheet" href="./dashboard.css">
+  <!-- <link rel="stylesheet" href="/files/files/a297db08-be09-4532-88e7-21e731327b9e/content"> -->
+
+  <!-- font awesome -->
+  <link rel="stylesheet" href="/files/files/bd06210c-c2a2-4610-a4f5-b15efb35d066/content">
+  <link rel="stylesheet" href="/files/files/47a5c656-6a38-45ff-9bbd-a52f9466ee2d/content">
+  <link rel="stylesheet" href="/files/files/c556c57e-364e-45c5-b76c-baefe8aa003f/content">
+  <script src="https://kit.fontawesome.com/249b71bb35.js" crossorigin="anonymous"></script> 
+
+    <script src="./bootstrap.min.js"></script>
+  <script src="/files/files/ca302a70-5665-4af4-a16c-16ea48ded3f8/content"></script>
+
+  <script src="./dashboard.js"></script>
+  <!-- <script src="/files/files/2c1ef48e-7afb-4626-9752-09057dd212e4/content"></script> -->
+
+</head>
+
+<body>
+
+  <form action="/SASJobExecution/" align="center">HdGPD
+    <input type="hidden" name="_program" value="$PROGRAM$" />
+    <input type="hidden" name="_action" value="wait,execute" />
+    <input type="hidden" name="_output_type" value="html" />
+  </form>
+
+  <!--   <div class="container-fluid ps-5 pe-5">
+    <header class="d-flex justify-content-between align-items-center ">
+      <img class="logo mb-1" src="/files/files/fb76b3b7-7575-4734-8b27-5a16a158c131/content" alt="Aramco Logo">
+    </header>
+  </div> -->
+  <nav class="container-fluid ps-5 pe-5 ">
+    <nav class="d-flex justify-content-between align-items-center">
+      <div class="nav-link">
+        <!--         <img width="20px" src="/files/files/107f6a83-7204-4968-a859-a6d264baf212/content" class="me-2 mb-2"> -->
+        <i class="fa-solid fa-user me-2"></i>
+        <span id="greetuser"></span>
+      </div>
+
+      <div class="mb-0 nav-title">
+        <span class="underline-title">EDFS </span>
+        <span class="underline-title-extender"></span>
+        <span class="text">Energy Demand Forcasting Solution</span>
+      </div>
+      <div class="d-flex">
+        <a class="nav-link" href="/SASJobExecution/logout">
+
+          <!--         <img width="20px" src="/files/files/688ecb70-7fa6-45c0-811d-30337f490ba8/content" class="me-2 nav-link d-inline"> -->
+          <i class="fa-solid fa-right-from-bracket me-1"></i>
+          Logout
+
+        </a>
+      </div>
+    </nav>
+  </nav>
+  <div class="container-fluid ">
+    <div class="row">
+      <div class="col-2 col-2-custom px-0 left-panel">
+        <!-- <button onclick="handleExpandAll()" class="btn main-color border-0">Expand All +</button> -->
+        <div class="accordion" id="accordionPanelsStayOpenExample">
+          <div class="accordion-item" >
+            <h2 class="accordion-header" id="panelsStayOpen-headingTwo">
+              <button class="accordion-btn collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseTwo">
+
+                Southern Area Gas Operations
+              </button>
+            </h2>
+            <div id="panelsStayOpen-collapseTwo" class="expandable collapse ">
+              <ul class="accordion-body">
+                <!--                 <li class="accordion-item" id="SNGLPD-item"><button class="btn border-0" onclick="NGPD()">NGPD</button></li> -->
+                <li class="accordion-item" >
+                  <button class="btn border-0 active" id="HdGPD-item" onclick="handleNavClick('HdGPD')">Haradh Gas Plant Department</button>
+                </li>
+
+                <li class="accordion-item" >
+                  <button class="btn border-0" id="HGPD-item">Hawiyah Gas Plant Department</button>
+                </li>
+
+                <li class="accordion-item" >
+                  <button class="btn border-0" onclick="handleNavClick('HNGLPD')" id="HNGLPD-item">Hawiyah NGL Recovery Plant Department</button>
+                </li>
+                <li class="accordion-item" >
+                  <button class="btn border-0" onclick="SGPD()" id="SGPD-item">Shedgum Gas Plant Department</button>
+                </li>
+                <li class="accordion-item" >
+                  <button class="btn border-0" id="UGPD-item" onclick="handleNavClick('UGPD')" >Uthmaniyah Gas Plant Department</button>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="accordion-item" >
+            <h2 class="accordion-header" id="panelsStayOpen-headingOne">
+              <button class="accordion-btn collapsed " type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseOne">
+                Northern Area Gas Operations
+              </button>
+            </h2>
+            <div id="panelsStayOpen-collapseOne" class="expandable collapse">
+              <ul class="accordion-body pe-0">
+                <!--                 <li><button class="btn border-0" onclick="HGPD()">HGPD</button></li> -->
+                <li class="accordion-item" class="accordion-item" >
+                  <button class="btn border-0   " id="BGPD-item" onclick="HdGPD()">Berri Gas Plant Department</button>
+                </li>
+                <li class="accordion-item" class="accordion-item" >
+                  <button class="btn border-0"  onclick="HNGLPD()" id="FGPD-item">Fadhili Gas Plant Department</button>
+                </li>
+                <li class="accordion-item" class="accordion-item" >
+                  <button class="btn border-0" id="KGPD-item"  onclick="HNGLPD()">Khurasaniyah Gas Plant Department</button>
+                </li>
+                <li class="accordion-item" class="accordion-item" >
+                  <button class="btn border-0" onclick="handleNavClick('SNGLPD')" id="SNGLPD-item">Shaybah NGL Recovery Plant Department</button>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="panelsStayOpen-headingFour">
+              <button class="accordion-btn collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseFour">
+
+                Northern Area Oil Operations
+              </button>
+            </h2>
+            <div id="panelsStayOpen-collapseFour" class="expandable collapse">
+              <ul class="accordion-body pe-0">
+                <li class="accordion-item"><button class="btn border-0" id="MPD-item"   onclick="HNGLPD()">Manifa Producing Department</button>
+                </li>
+                <li class="accordion-item"><button class="btn border-0" id="RTPD-item"  onclick="HNGLPD()">Ras Tanura Producing Department</button>
+                </li>
+                <li class="accordion-item"><button class="btn border-0" id="SOfPD-item"  onclick="HNGLPD()">Safaniya Offshore Producing Department</button>
+                </li>
+                <li class="accordion-item"><button class="btn border-0" id="SONPD-item"  onclick="HNGLPD()">Safaniya Onshore Producing Department</button>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="accordion-item" id="SAO-item">
+            <h2 class="accordion-header" id="panelsStayOpen-headingFour">
+              <button class="accordion-btn collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseFive">
+
+                Southern Area Oil Operations
+              </button>
+            </h2>
+            <div id="panelsStayOpen-collapseFive" class="expandable collapse">
+              <ul class="accordion-body pe-0">
+                <li class="accordion-item"><button class="btn border-0" id="APOD-item" onclick="HNGLPD()" >Abqaiq Plants Operations Department</button>
+                </li>
+                <li class="accordion-item"><button class="btn border-0" id="KhPD-item" onclick="HNGLPD()" >Khurais Producing Department</button>
+                </li>
+                <li class="accordion-item"><button class="btn border-0" id="NGPD-item" onclick="HNGLPD()" >North Ghawar Producing Department</button>
+                </li>
+                <li class="accordion-item"><button class="btn border-0" id="SWID-item" onclick="handleNavClick('SWID')">Sea Water Injection Department</button>
+                </li>
+                <li class="accordion-item"><button class="btn border-0" id="SyPD-item" onclick="handleNavClick('SyPD')">Shaybah Producing Department</button>
+                </li>
+                <li class="accordion-item"><button class="btn border-0" id="SGPD-item" onclick="HNGLPD()" >South Ghawar Producing Department</button>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="iframe-container col  pe-0">
+        <!--         <img src="/files/files/e3ef10ba-80f5-442a-805b-da11ebb8f6d1/content" height="25px" class="d-inline-block mb-2 me-2">
+        <h2 class="d-inline-block sub-heading main-color">DASHBOARDS</h2> -->
+        <div id="content1">
+          <div class="nav nav-tabs" id="nav-container">
+            <button class="btn main-color border-0" onclick="openCity('realTimeTab')" id = "realTimeTab">Real Time</button>
+            <button class="btn main-color border-0" onclick="openCity('targetSettingTab')" id = "targetSettingTab">Target Setting</button>
+
+          </div>
+          <div  class="tabcontent"  id = "targetContent" >
+            <button class="btn expnd-btn" onclick="openFullscreen('Dashboard-frame1')">
+              <i class="fas fa-window-restore"></i>
+            </button>
+            <iframe class="xframe" id="Dashboard-frame1" name="iframe1" src="">
+            </iframe>
+          </div>
+
+          <div class="tabcontent" id = "realtimeContent">
+            <button class="btn expnd-btn" onclick="openFullscreen('Monitoring-frame2')">
+              <i class="fas fa-window-restore"></i>
+            </button>
+            <iframe class="xframe" id="Monitoring-frame2" name="iframe2" src="">
+
+            </iframe>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>
